@@ -15,7 +15,7 @@ jobs:
     name: build & test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -58,7 +58,7 @@ jobs:
     name: packaging version parity
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       # Offline string comparison, so this is safe to require. It catches a
       # Cargo.toml bump that forgets packaging/; the artifact hashes are
@@ -70,7 +70,7 @@ jobs:
     name: sigma pin consistency
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       # Offline too, for the same reason as the job above: it catches a
       # baseline regenerated against some ruleset other than the pinned one,
@@ -87,7 +87,7 @@ jobs:
       contents: read
       actions: read
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -114,7 +114,7 @@ jobs:
     name: sigma live enrichment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -133,7 +133,7 @@ jobs:
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
 
       - name: Check out the pinned SigmaHQ ruleset
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
         with:
           repository: SigmaHQ/sigma
           ref: ${{ steps.sigma.outputs.ref }}
@@ -161,7 +161,7 @@ jobs:
     name: verify detections
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -185,7 +185,7 @@ jobs:
       # because SigmaHQ merged a rule overnight. sigma-drift.yml watches
       # upstream on a schedule instead.
       - name: Check out the pinned SigmaHQ ruleset
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
         with:
           repository: SigmaHQ/sigma
           ref: ${{ steps.sigma.outputs.ref }}
