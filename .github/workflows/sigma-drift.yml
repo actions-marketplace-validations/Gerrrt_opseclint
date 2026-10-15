@@ -30,7 +30,7 @@ jobs:
     name: baselines vs upstream main
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -41,7 +41,7 @@ jobs:
       # Deliberately no `ref:` — this is the one place upstream is allowed to
       # move under us.
       - name: Check out upstream SigmaHQ
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
         with:
           repository: SigmaHQ/sigma
           path: sigma-rules
